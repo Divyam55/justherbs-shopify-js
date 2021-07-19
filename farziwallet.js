@@ -4,12 +4,12 @@ $(document).on(`page:load page:change`, function () {
         $(".tags-list .tag:last-child").each(function () {
             console.log("taglist-check")
             var tag_text = $(this).find(".tag__wrapper .reduction-code span:first").text()
-            var tag_new_text = "Wallet Used - "
+            var tag_new_text = "Wallet Applied"
             if (tag_text.startsWith("••••")) {
                 $(this).find(".tag__wrapper .reduction-code span:first").text(tag_new_text)
                 flag_wallet_applied = true 
             }
-            if (tag_text.startsWith("Wallet Used - ")) {
+            if (tag_text.startsWith("Wallet Applied")) {
                 $(".farziwallet-div").hide()
                 flag_wallet_applied = true
             }
@@ -52,12 +52,12 @@ $(document).on(`page:load page:change`, function () {
                             $(".tags-list .tag:last-child").each(function () {
                                 console.log("taglist")
                                 var tag_text = $(this).find(".tag__wrapper .reduction-code span:first").text()
-                                var tag_new_text = "Wallet Used - "
+                                var tag_new_text = "Wallet Applied"
                                 if (tag_text.startsWith("••••")) {
                                     $(this).find(".tag__wrapper .reduction-code span:first").text(tag_new_text)
                                     // clearInterval(tag_list_interval)
                                 }
-                                if (tag_text.startsWith("Wallet Used - ")) {
+                                if (tag_text.startsWith("Wallet Applied")) {
                                     $(".farziwallet-div").hide()
                                 }
                                 var line_text = $(".total-line.total-line--reduction:last-child span:first").text()
