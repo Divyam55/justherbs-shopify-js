@@ -34,10 +34,26 @@ $(document).on(`page:load page:change`, function () {
         };
 
         $.ajax(settings).done(function (response) {
-            var wallet_div = `<div class="farziwallet-div">
-  <input type="checkbox" name="farziwallet" value="yes" id="farziwallet" style="-webkit-appearance: checkbox;">
-  <label for="farziwallet">Use Wallet Balance - ` + response.wallet_balance + ` </label><br>
-  </div>`
+            var wallet_div = `<div class="farziwallet-div" style="
+            margin-top: 30px;
+            background: #fff;
+            background-clip: padding-box;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            color: #545454;
+            padding: 1.14em;
+        ">
+          <input type="checkbox" name="farziwallet" value="yes" id="farziwallet" style="/* -webkit-appearance: checkbox; */width: 1.3em;height: 1.3em;background-color: #ffffff;border-radius: 50%;vertical-align: middle;border: 1px solid #d9d9d9;-webkit-appearance: none;outline: none;cursor: pointer;/* padding-right: 1.75em; */">
+          <label for="farziwallet" style="
+            font-weight: 500;
+            padding-left: .75em;
+        ">Use Wallet Balance</label><br>
+        <div style="padding-left: 2.3em;height: 30px;display: flex;align-items: center;"><img src="https://img.icons8.com/ios-glyphs/30/000000/wallet-app.png" style="
+        "><span style="
+            font-weight: 500;
+            padding-left: 12px;
+        ">`+ "₹" + response.wallet_balance +`</span></div>
+          </div>`
             console.log("wallet_div")
             $(wallet_div).insertBefore($('.section.section--payment-method'))
             $('input[type=checkbox][name=farziwallet]').click(function () {
